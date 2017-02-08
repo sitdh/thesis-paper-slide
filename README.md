@@ -1,2 +1,1 @@
-# Thesis presentation
-IMECS2017: Presentation slide
+# IMECS2017: Presentation slide
