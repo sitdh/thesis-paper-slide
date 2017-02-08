@@ -11,3 +11,4 @@ q.tex
 *.loc
 *.soc
 *.swo
+log/
