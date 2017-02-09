@@ -12,3 +12,4 @@ q.tex
 *.soc
 *.swo
 log/
+dist/
