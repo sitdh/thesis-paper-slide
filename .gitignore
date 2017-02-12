@@ -12,4 +12,10 @@ q.tex
 *.soc
 *.swo
 log/
+
+# Beamer 
+*.nav
+*.out
+*.snm
+*.toc
 dist/
