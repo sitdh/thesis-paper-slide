@@ -1,0 +1,28 @@
+\definecolor{brewcolorRed}{RGB}{150,4,12}
+
+\setbeamercolor{frametitle}{fg=white,bg=brewcolorRed}
+
+\metroset{%
+    progressbar=head
+}
+
+\defbeamertemplate*{footline}{}%
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.3\paperwidth,ht=2ex,dp=2ex,center]{section in footer}%
+            \includegraphics[width=0.25\paperwidth]{figure/chula-engineering}
+        \end{beamercolorbox}
+
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2ex,dp=2ex,center]{subsection in footer}%
+            \insertsubsection
+            \vspace{0.2cm}
+        \end{beamercolorbox}
+
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=6ex,dp=2ex,right]{pagenumber in footer}%
+            \vfill
+            \insertframenumber{}\hspace{1cm}
+            \vspace{0.2cm}
+        \end{beamercolorbox}
+    }
+}
