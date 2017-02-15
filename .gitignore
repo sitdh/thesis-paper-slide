@@ -19,3 +19,4 @@ log/
 *.snm
 *.toc
 dist/
+*-blx.bib
