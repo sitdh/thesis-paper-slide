@@ -5,6 +5,7 @@
 %
 \usetheme{metropolis}
 \usepackage[backend=bibtex,style=authoryear]{biblatex}
+\usepackage{listings}
 \addbibresource{references.bib}
 
 % add commar between name and year \ Default (Name Year), Renew (Name, Year)
@@ -43,7 +44,6 @@
 \begin{frame}{Software Testing's benefits}
   \begin{itemize}
      \item Indicating the confidencial level of Software Under Test
-     \item Indicating the confidencial level of Software Under Test
      \item Verifying conformance to Software Requirements Specification
      \item Discovering errors in source code
   \end{itemize}
@@ -57,37 +57,47 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Languages}
+\begin{frame}{Various of Languages}
     \begin{figure}
         \includegraphics[width=.9\paperwidth]{figure/hello-world-lang}
-        \caption{Hello World! in differences languages}
+        \caption{Hello World! in languages}
         \label{fig:helloworld}
+    \end{figure}
+    \note{Hello world}
+\end{frame}
+
+\begin{frame}{Software works together}
+    \begin{figure}
+        \includegraphics[height=.7\paperheight]{figure/graph.png}
+        \caption{Connections between Classes}
+        \label{fig:classConnection}
+        % http://nion.modprobe.de/blog/archives/556-creating-dynamic-function-call-graphs.html
     \end{figure}
 \end{frame}
 
-\begin{frame}{Faults Detection Metric}
-    \begin{figure}
-        \begin{equation}
-            APFD~=~1-~\frac{\sum^{num_f}_{i=1}{TF_i}}{{num}_t \cdot {num}_f} %
-                    +~\frac{1}{2 \cdot {num}_t}
-            \label{eq:apfd}
-        \end{equation}
-        \caption{Average Percentage Faults Detected metric \parencite{792604}}
-        \label{fig:apfd}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Faults Detection Metric}
+%     \begin{figure}
+%         \begin{equation}
+%             APFD~=~1-~\frac{\sum^{num_f}_{i=1}{TF_i}}{{num}_t \cdot {num}_f} %
+%                     +~\frac{1}{2 \cdot {num}_t}
+%             \label{eq:apfd}
+%         \end{equation}
+%         \caption{Average Percentage Faults Detected metric \parencite{792604}}
+%         \label{fig:apfd}
+%     \end{figure}
+% \end{frame}
 
 % % % % % % % % % % % % % % % % % % % % 
 
 % % % % % % % % % % % % % % % % % % % % 
 % Related works
 %
-\section{Related works}
-\begin{frame}{Automatic Test Case Generation Using Sequence Diagram}
-\end{frame}
-
-\begin{frame}{Data flow based Test Case Generation Algorithm for Object Oriented Integration Testing}
-\end{frame}
+% \section{Related works}
+% \begin{frame}{Automatic Test Case Generation Using Sequence Diagram}
+% \end{frame}
+% 
+% \begin{frame}{Data flow based Test Case Generation Algorithm for Object Oriented Integration Testing}
+% \end{frame}
 % % % % % % % % % % % % % % % % % % % % 
 
 % % % % % % % % % % % % % % % % % % % % 
@@ -102,38 +112,53 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Control Flow Graph}
-    \textbf{Control flow graph definition}
-    \parencite{Allen:1970:CFA:390013.808479}
-\end{frame}
 
 \begin{frame}{Control Flow Graph}
     \begin{figure}
-        \includegraphics[width=0.7\paperwidth]{figure/Primitive-Operation-Structure}
+        \includegraphics[width=.8\paperwidth]{figure/Primitive-Operation-Structure}
         \caption{Primitive operation structure \parencite{McCabe1976}}
         \label{fig:primitivestructure}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Program graph}
+\begin{frame}{Source Code Structure}
+    % \textbf{Control flow graph definition}
+    % \parencite{Allen:1970:CFA:390013.808479}
+    \begin{figure}
+        \includegraphics[height=.7\paperheight]{figure/cfg-transform}
+        \caption{Source code transformation: (a) Source code (b) Control Flow Graph}
+        \label{fig:sourceCodeTransf}
+        % http://nion.modprobe.de/blog/archives/556-creating-dynamic-function-call-graphs.html
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Program Graph}
     \begin{enumerate}
         \item<1-> Control Flow Graph
         \item<2-> Static Call Graph
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Static Call Graph}
-    \textbf{Static call graph's definition}
+\begin{frame}{Software are composed by classes}
+    \begin{figure}
+        \includegraphics[width=0.6\paperwidth]{figure/class-connected}
+        \caption{Class connection}
+        \label{fig:classConnect}
+    \end{figure}
 \end{frame}
 
-\begin{frame}{Static Call Graph}
-    \textbf{Example}
+\begin{frame}{Class interfaces}
+    \begin{figure}
+        \includegraphics[height=0.6\paperheight]{figure/class-interfaces}
+        \caption{Class Interfaces between Class A and B}
+        \label{fig:classInterfaces}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Static Call Graph}
     \begin{figure}
-        \includegraphics[width=0.6\paperwidth]{figure/SCG-A-and-B}
-        \caption{Static Call Graph of Class A and Class B}
+        \includegraphics[width=0.8\paperwidth]{figure/SCG-A-and-B}
+        \caption{Static Call Graph of Class A and B}
         \label{fig:staticCallGraphAandB}
     \end{figure}
 \end{frame}
@@ -144,33 +169,70 @@
 % Proposed approach
 %
 \section{Proposed Approach}
-\subsection{Overview}
-\begin{frame}{Methodology overview}
+\subsection{Methodology}
+% \begin{frame}{Methodology overview}
+\begin{frame}
     \begin{figure}
-        \includegraphics[height=0.65\paperheight]{figure/Methodology.eps}
+        \includegraphics[height=0.8\paperheight]{figure/Methodology.eps}
         \caption{Methodology of Test Case Generation based on Static Data}
         \label{fig:methodologyOverview}
     \end{figure}
 \end{frame}
 
+% \begin{frame}{Assumption}
+%     \begin{itemize}
+%         \item There are 3 classes, $C_1$, $C_2$, and $C_3$
+%         \item There are methods, $m_{11}$ and $m_{12}$, within $C_1$; $C_1 = \{m_{11}, m_{12}\}$ \\
+%                 $m_{21}$, $m_{22}$, and $m_{23}$, within $C_2$; $C_2 = \{m_{21}, m_{22}, m_{23}\}$ and \\
+%                 $m_{31}$, and $m_{32}$, within $C_3$; $C_2 = \{m_{31}, m_{32}\}$. 
+%     \end{itemize}
+% \end{frame}
+
 \subsection{Constant collection}
 \begin{frame}{Constant collection}
+    \begin{figure}
+        \includegraphics[width=0.8\paperwidth]{figure/constants-collection.pdf}
+        \caption{Constants Collection in the Class}
+        \label{fig:constantsCollection}
+    \end{figure}
 \end{frame}
 
 \subsection{Constructing source code's structure}
 \begin{frame}{Constructing source code's structure}
+    \begin{figure}
+        \includegraphics[width=0.9\paperwidth]{figure/cfg-construction.pdf}
+        \caption{Control Flow Graph Construction from Source Code}
+        \label{fig:cfgConstruct}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Constructing source code's structure}
+    \begin{figure}
+        \includegraphics[width=0.7\paperwidth]{figure/scg-construction.pdf}
+        \caption{Static Call Graph Construction from Classes}
+        \label{fig:scgConstruct}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Static Call Graph form}
+    \begin{figure}
+        \includegraphics[width=0.7\paperwidth]{figure/scg-form.pdf}
+        \caption{Static Call Graph Form between the Interfaces of Classes}
+        \label{fig:scgForm}
+    \end{figure}
 \end{frame}
 
 \subsection{Source code instrumentation}
 \begin{frame}{Source code instrumentation}
+    \begin{itemize}
+        \item<1-> Code Coverage Indentification
+        \item<2-> Run-time Tracking
+    \end{itemize}
 \end{frame}
 
 \subsection{Generating Test case}
-\begin{frame}{Generating Test case}
-\end{frame}
-
 \begin{frame}
-    \begin{figure}
+    \begin{figure}{Generating Test case}
         \includegraphics[height=.8\paperheight]{figure/Activities}
         \caption{Test case generation}
         \label{fig:testcasegenearation}
