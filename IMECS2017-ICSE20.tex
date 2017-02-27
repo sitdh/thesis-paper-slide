@@ -37,6 +37,14 @@
     \tableofcontents[hideallsubsections]
 \end{frame}
 
+\newcommand{\displayframe}{%
+    \begin{frame}{Outline}
+    \tableofcontents[%
+        currentsection,
+        subsectionstyle=hide
+        ]
+    \end{frame}
+}
 % % % % % % % % % % % % % % % % % % % % 
 % Introduction
 %
@@ -72,6 +80,14 @@
         \caption{Connections between Classes}
         \label{fig:classConnection}
         % http://nion.modprobe.de/blog/archives/556-creating-dynamic-function-call-graphs.html
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Software contains modules}
+    \begin{figure}
+        \includegraphics[width=.7\paperwidth]{figure/software-modules}
+        \caption{Software modules}
+        \label{fig:softwareModules}
     \end{figure}
 \end{frame}
 
@@ -168,25 +184,30 @@
 % % % % % % % % % % % % % % % % % % % % 
 % Proposed approach
 %
+% \section{Related works}
+% \begin{frame}{First}
+%     she \parencite{Panthi2012}
+% \end{frame}
+% 
+% \begin{frame}{Second}
+%     he \parencite{7339088}
+% \end{frame}
+
+% % % % % % % % % % % % % % % % % % % % 
+
+% % % % % % % % % % % % % % % % % % % % 
+% Proposed approach
+%
 \section{Proposed Approach}
 \subsection{Methodology}
 % \begin{frame}{Methodology overview}
 \begin{frame}
     \begin{figure}
-        \includegraphics[height=0.8\paperheight]{figure/Methodology.eps}
+        \includegraphics[height=0.8\paperheight]{figure/Methodology}
         \caption{Methodology of Test Case Generation based on Static Data}
         \label{fig:methodologyOverview}
     \end{figure}
 \end{frame}
-
-% \begin{frame}{Assumption}
-%     \begin{itemize}
-%         \item There are 3 classes, $C_1$, $C_2$, and $C_3$
-%         \item There are methods, $m_{11}$ and $m_{12}$, within $C_1$; $C_1 = \{m_{11}, m_{12}\}$ \\
-%                 $m_{21}$, $m_{22}$, and $m_{23}$, within $C_2$; $C_2 = \{m_{21}, m_{22}, m_{23}\}$ and \\
-%                 $m_{31}$, and $m_{32}$, within $C_3$; $C_2 = \{m_{31}, m_{32}\}$. 
-%     \end{itemize}
-% \end{frame}
 
 \subsection{Constant collection}
 \begin{frame}{Constant collection}
@@ -230,9 +251,25 @@
     \end{itemize}
 \end{frame}
 
+\subsection{Summarization}
+\begin{frame}{Summarization}
+    \begin{itemize}
+        \item Understand source code structure
+        \item Collection of constant in source code
+        \item Instrumented code for execute generated test cases
+    \end{itemize}
+\end{frame}
+
 \subsection{Generating Test case}
 \begin{frame}
-    \begin{figure}{Generating Test case}
+    \begin{figure}
+        \includegraphics<1>[height=0.8\paperheight]{figure/Methodology}
+        \includegraphics<2>[height=0.8\paperheight]{figure/Methodology-Highlight-1}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
         \includegraphics[height=.8\paperheight]{figure/Activities}
         \caption{Test case generation}
         \label{fig:testcasegenearation}
@@ -240,18 +277,25 @@
 \end{frame}
 
 \begin{frame}{Selecting test path}
+    \begin{figure}
+        \includegraphics<1>[width=.8\paperwidth]{figure/psuedo-classes-connection}
+        \caption{Class's structure}
+        \label{fig:classStructure}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Selecting test path}
+    \begin{figure}
+        \includegraphics<1>[width=.8\paperwidth]{figure/Relationship-between-Classes}
+        \includegraphics<2>[width=.8\paperwidth]{figure/3rd-test-path}
+        \includegraphics<3>[width=.8\paperwidth]{figure/2nd-test-path}
+        \includegraphics<4>[width=.8\paperwidth]{figure/1st-test-path}
+        \caption{Relation of Classes}
+        \label{fig:relationOfClassInSCGForm}
+    \end{figure}
 \end{frame}
 
-\begin{frame}{Analizing method signature}
-\end{frame}
-
-\begin{frame}{Random input data}
-\end{frame}
-
-\begin{frame}{Generating test case}
+\begin{frame}{Selecting test paths}
     \begin{figure}
         \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes}
         \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-1}
@@ -259,21 +303,54 @@
         \includegraphics<4>[height=.6\paperheight]{figure/Calling-statements-of-Classes-3}
         \includegraphics<5>[height=.6\paperheight]{figure/Calling-statements-of-Classes-4}
         \includegraphics<6>[height=.6\paperheight]{figure/Calling-statements-of-Classes-5}
+        \includegraphics<7>[height=.6\paperheight]{figure/Calling-statements-of-Classes-6}
         \caption{Calling Statement between Method $m_{11}$, $m_{21}$ and $m_{31}$ of Class $C_1$, $C_2$ and $C_3$ respectively }
         \label{fig:testcasegenearation}
     \end{figure}
 \end{frame}
 
+\begin{frame}{Analizing method signature}
+    \centering
+    \makebox[0.7\paperwidth][l]{$m_{11}~:~12~~studentScore~>80$}
+    \makebox[0.7\paperwidth][l]{$m_{11}~:~14~~studentScore~>50$}
+    \makebox[0.7\paperwidth][l]{$m_{21}~:~11~~true~>~hasQuizScore$}
+\end{frame}
+
+\begin{frame}{Analizing method signature}
+    \centering
+    \makebox[0.7\paperwidth][l]{$m_{11}(String~studntID,~float~studentScore)~:~String$}
+    \makebox[0.7\paperwidth][l]{$m_{11}(String~studentID)~:~float$}
+    \makebox[0.7\paperwidth][l]{$m_{21}(String~studentID)~:~float$}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \includegraphics[width=0.8\paperwidth]{figure/constants-collection.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Generating test case}
+    \begin{figure}
+        \includegraphics<1>[height=0.8\paperheight]{figure/Methodology}
+        \includegraphics<2>[height=0.8\paperheight]{figure/Methodology-Highlight-1}
+    \end{figure}
+\end{frame}
+
 \subsection{Adjust expected output}
 \begin{frame}{Adjust expected output}
+    \begin{figure}
+        \includegraphics<1>[width=.8\paperwidth]{figure/example-of-generated-test-case.pdf}
+        \includegraphics<2>[width=.8\paperwidth]{figure/adjusted-example-of-generated-test-case.pdf}
+        \caption{Gnerated test case}
+        \label{fig:classStructure}
+    \end{figure}
 \end{frame}
 
-\subsection{Execute software testing}
-\begin{frame}{Execute software testing}
-\end{frame}
-
-\subsection{Compare executed result with graph}
-\begin{frame}{Execute software testing}
+\subsection{Final phase}
+\begin{frame}
+    \begin{figure}
+        \includegraphics[height=0.8\paperheight]{figure/Methodology-Highlight-2}
+    \end{figure}
 \end{frame}
 % % % % % % % % % % % % % % % % % % % % 
 
@@ -283,9 +360,9 @@
 \section{Conclusion}
 \begin{frame}{Conclusion}
     \begin{itemize}
-        \item<1->aaaa
-        \item<2->bbbb
-        \item<3->cccc
+        \item<1->Introduce an approach for test case generation based on integration testing by considering the static call graph.
+        \item<2->Generated test cases exercise all branches in the graph, branch coverage.
+        \item<3->Test data also prepaire to make the test case exercise throught the selected test paths.
     \end{itemize}
 \end{frame}
 % % % % % % % % % % % % % % % % % % % % 
@@ -293,8 +370,8 @@
 % % % % % % % % % % % % % % % % % % % % 
 % Conclusion
 %
-\begin{frame}[standout]
-    Question \& Answer
+\begin{frame}
+    \Large{Question \& Answer}
 \end{frame}
 % % % % % % % % % % % % % % % % % % % % 
 \end{document}
