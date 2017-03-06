@@ -22,9 +22,9 @@
 % % % % % % % % % % % % % % % % % % % % 
 % Title config
 %
-\title{\ThesisNameEN}
-\subtitle{IMECS2017}
-\date[2017.03.14]{\today}
+\title{An Approach for Test Case Generation from a Static Call Graph for Object-Oriented Programming}
+% \subtitle{IMECS2017}
+\date{17 March 2017}
 \author{\authorNameEN~\small{and~\advisorEn}}
 \institute{{\facultyEn}, {\universityEn}}
 % % % % % % % % % % % % % % % % % % % % 
@@ -209,13 +209,26 @@
     \end{figure}
 \end{frame}
 
-\subsection{Constant collection}
+\subsection{Constant Collection}
 \begin{frame}{Constant collection}
     \begin{figure}
         \includegraphics[width=0.8\paperwidth]{figure/constants-collection.pdf}
         \caption{Constants Collection in the Class}
         \label{fig:constantsCollection}
     \end{figure}
+\end{frame}
+
+\begin{frame}{Constant Collection}
+    \begin{table}
+        \caption{Collection of Constants}
+        \label{tab:fff}
+        \begin{tabular}{cccc}
+            \textit{\textbf{String}} & \textit{\textbf{int}} & \textit{\textbf{float}} & \textit{\textbf{enum}} \\ \hline \hline
+            "U"     & 80    & - & - \\
+            "I"     & 0     &   &   \\
+            "S"     & 100   &   &   \\ \hline 
+        \end{tabular}
+    \end{table}
 \end{frame}
 
 \subsection{Constructing source code's structure}
@@ -244,11 +257,20 @@
 \end{frame}
 
 \subsection{Source code instrumentation}
-\begin{frame}{Source code instrumentation}
+\begin{frame}{Source Code Instrumentation}
     \begin{itemize}
-        \item<1-> Code Coverage Indentification
-        \item<2-> Run-time Tracking
+        \item Code coverage indentification
+        \item Run-time tracking
+        \item Test with the generated test cases 
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Source Code Instrumentation}
+    \begin{figure}
+        \includegraphics[width=.8\paperwidth]{figure/instrumented-code.png}
+        \caption{Instrumented Source Code}
+        \label{fig:instrumentedSourceCode}
+    \end{figure}
 \end{frame}
 
 \subsection{Summarization}
@@ -295,7 +317,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Selecting test paths}
+\begin{frame}{Test paths selection}
     \begin{figure}
         \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes}
         \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-1}
@@ -305,7 +327,7 @@
         \includegraphics<6>[height=.6\paperheight]{figure/Calling-statements-of-Classes-5}
         \includegraphics<7>[height=.6\paperheight]{figure/Calling-statements-of-Classes-6}
         \caption{Calling Statement between Method $m_{11}$, $m_{21}$ and $m_{31}$ of Class $C_1$, $C_2$ and $C_3$ respectively }
-        \label{fig:testcasegenearation}
+        \label{fig:testPathSelection}
     \end{figure}
 \end{frame}
 
@@ -342,7 +364,7 @@
         \includegraphics<1>[width=.8\paperwidth]{figure/example-of-generated-test-case.pdf}
         \includegraphics<2>[width=.8\paperwidth]{figure/adjusted-example-of-generated-test-case.pdf}
         \caption{Gnerated test case}
-        \label{fig:classStructure}
+        \label{fig:expectedOutput}
     \end{figure}
 \end{frame}
 
@@ -360,9 +382,9 @@
 \section{Conclusion}
 \begin{frame}{Conclusion}
     \begin{itemize}
-        \item<1->Introduce an approach for test case generation based on integration testing by considering the static call graph.
-        \item<2->Generated test cases exercise all branches in the graph, branch coverage.
-        \item<3->Test data also prepaire to make the test case exercise throught the selected test paths.
+        \item Introduce an approach for test case generation based on integration testing by considering the static call graph.
+        \item Generated test cases exercise all branches in the graph, branch coverage.
+        \item Test data also prepaire to make the test case exercise throught the selected test paths.
     \end{itemize}
 \end{frame}
 % % % % % % % % % % % % % % % % % % % % 
