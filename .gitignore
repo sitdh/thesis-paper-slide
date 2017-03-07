@@ -1,4 +1,19 @@
 .DS_Store
+g:q
+*.bbl
+*.blg
+*.aux*
+*.swp
+*.bcf
+*.run.xml
+*.pdf
+ *.loc
+ *.soc
+ *.swo
+ log/
+ 
+ # Beamer
+ *.nav1,Top1   .DS_Store
 q.tex
 *.log
 *.bbl
@@ -18,5 +33,6 @@ log/
 *.out
 *.snm
 *.toc
-dist/
-*-blx.bib
+
+#*#
+*~
