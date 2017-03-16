@@ -52,20 +52,20 @@
 \begin{frame}{Software Testing's benefits}
   \begin{itemize}
      \item Indicating the confidencial level of Software Under Test
-     \item Verifying conformance to Software Requirements Specification
      \item Discovering errors in source code
+     \item Verifying conformance to Software Requirements Specification
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Various Platforms}
+\begin{frame}{Various platforms}
     \begin{figure}
         \includegraphics[width=.8\paperwidth]{figure/mobile_bugs}
-        \caption{Various platforms for software}
+        \caption{Various Platforms for Software}
         \label{fig:variousplatform}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Various of Languages}
+\begin{frame}{Various of languages}
     \begin{figure}
         \includegraphics[width=.9\paperwidth]{figure/hello-world-lang}
         \caption{$Hello~World!$ in difference languages}
@@ -85,7 +85,7 @@
 \begin{frame}{Software works together}
     \begin{figure}
         \includegraphics[height=.7\paperheight]{figure/graph.png}
-        \caption{Connections between Classes}
+        \caption{Connections amount classes}
         \label{fig:classConnection}
         % http://nion.modprobe.de/blog/archives/556-creating-dynamic-function-call-graphs.html
     \end{figure}
@@ -129,7 +129,7 @@
 \end{frame}
 
 
-\begin{frame}{Control Flow Graph}
+\begin{frame}{Control flow graph}
     \begin{figure}
         \includegraphics[width=.8\paperwidth]{figure/Primitive-Operation-Structure}
         \caption{Primitive operation structure \parencite{McCabe1976}}
@@ -137,7 +137,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Source Code Structure}
+\begin{frame}{Source code structure}
     % \textbf{Control flow graph definition}
     % \parencite{Allen:1970:CFA:390013.808479}
     \begin{figure}
@@ -155,7 +155,7 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Software are composed by classes}
+\begin{frame}{Software contains classes}
     \begin{figure}
         \includegraphics[width=0.6\paperwidth]{figure/class-connected}
         \caption{Class connection}
@@ -171,7 +171,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Static Call Graph}
+\begin{frame}{Static call graph}
     \begin{figure}
         \includegraphics[width=0.8\paperwidth]{figure/SCG-A-and-B}
         \caption{Static Call Graph of Class A and B}
@@ -198,7 +198,7 @@
 % % % % % % % % % % % % % % % % % % % % 
 % Proposed approach
 %
-\section{Proposed Approach}
+\section{Proposed approach}
 \subsection{Methodology}
 % \begin{frame}{Methodology overview}
 \begin{frame}
@@ -209,7 +209,7 @@
     \end{figure}
 \end{frame}
 
-\subsection{Constant Collection}
+\subsection{Constant collection}
 \begin{frame}{Constant collection}
     \begin{figure}
         \includegraphics[width=0.8\paperwidth]{figure/constants-collection.pdf}
@@ -231,7 +231,8 @@
     \end{table}
 \end{frame}
 
-\subsection{Constructing source code's structure}
+% \subsection{Constructing source code's structure}
+\subsection{Control Flow Graph}
 \begin{frame}{Constructing source code's structure}
     \begin{figure}
         \includegraphics[width=0.9\paperwidth]{figure/cfg-construction.pdf}
@@ -240,6 +241,7 @@
     \end{figure}
 \end{frame}
 
+\subsection{Static Call Graph}
 \begin{frame}{Constructing source code's structure}
     \begin{figure}
         \includegraphics[width=0.7\paperwidth]{figure/scg-construction.pdf}
@@ -248,7 +250,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Static Call Graph form}
+\begin{frame}{Static call graph form}
     \begin{figure}
         \includegraphics[width=0.7\paperwidth]{figure/scg-form.pdf}
         \caption{Static Call Graph Form between the Interfaces of Classes}
@@ -257,11 +259,19 @@
 \end{frame}
 
 \subsection{Source code instrumentation}
-\begin{frame}{Source Code Instrumentation}
+% \begin{frame}{Source Code Instrumentation}
+%     \begin{itemize}
+%         \item Code coverage indentification
+%         \item Run-time tracking
+%         \item Test with the generated test cases 
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}{Instrumented statement}
     \begin{itemize}
-        \item Code coverage indentification
-        \item Run-time tracking
-        \item Test with the generated test cases 
+        \item Method entry and exit
+        \item Predicate execute
+        \item Calling method
     \end{itemize}
 \end{frame}
 
@@ -273,45 +283,44 @@
     \end{figure}
 \end{frame}
 
-\subsection{Summarization}
-\begin{frame}{Summarization}
-    \begin{itemize}
-        \item Understand source code structure
-        \item Collection of constant in source code
-        \item Instrumented code for execute generated test cases
-    \end{itemize}
+\subsection{Recap}
+\begin{frame}{Recap}
+    \begin{figure}
+        \includegraphics<1>[height=0.8\paperheight]{figure/1st-phase-1}
+        \includegraphics<2>[height=0.8\paperheight]{figure/1st-phase-2}
+        \includegraphics<3>[height=0.8\paperheight]{figure/1st-phase-3}
+    \end{figure}
 \end{frame}
 
 \subsection{Generating Test case}
 \begin{frame}
     \begin{figure}
-        \includegraphics<1>[height=0.8\paperheight]{figure/Methodology}
-        \includegraphics<2>[height=0.8\paperheight]{figure/Methodology-Highlight-1}
+        \includegraphics[height=0.8\paperheight]{figure/Methodology-Highlight-1}
     \end{figure}
 \end{frame}
 
 \begin{frame}
     \begin{figure}
         \includegraphics[height=.8\paperheight]{figure/Activities}
-        \caption{Test case generation}
+        \caption{Activities in Test Case Generation}
         \label{fig:testcasegenearation}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Selecting test path}
-    \begin{figure}
-        \includegraphics<1>[width=.8\paperwidth]{figure/psuedo-classes-connection}
-        \caption{Class's structure}
-        \label{fig:classStructure}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Selecting test path}
+%     \begin{figure}
+%         \includegraphics<1>[width=.8\paperwidth]{figure/psuedo-classes-connection}
+%         \caption{Class's structure}
+%         \label{fig:classStructure}
+%     \end{figure}
+% \end{frame}
 
 \begin{frame}{Selecting test path}
     \begin{figure}
         \includegraphics<1>[width=.8\paperwidth]{figure/Relationship-between-Classes}
-        \includegraphics<2>[width=.8\paperwidth]{figure/3rd-test-path}
+        \includegraphics<2>[width=.8\paperwidth]{figure/1st-test-path}
         \includegraphics<3>[width=.8\paperwidth]{figure/2nd-test-path}
-        \includegraphics<4>[width=.8\paperwidth]{figure/1st-test-path}
+        \includegraphics<4>[width=.8\paperwidth]{figure/3rd-test-path}
         \caption{Relation of Classes}
         \label{fig:relationOfClassInSCGForm}
     \end{figure}
@@ -319,26 +328,31 @@
 
 \begin{frame}{Test paths selection}
     \begin{figure}
-        \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes}
-        \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-1}
-        \includegraphics<3>[height=.6\paperheight]{figure/Calling-statements-of-Classes-2}
-        \includegraphics<4>[height=.6\paperheight]{figure/Calling-statements-of-Classes-3}
-        \includegraphics<5>[height=.6\paperheight]{figure/Calling-statements-of-Classes-4}
-        \includegraphics<6>[height=.6\paperheight]{figure/Calling-statements-of-Classes-5}
-        \includegraphics<7>[height=.6\paperheight]{figure/Calling-statements-of-Classes-6}
+        % \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes}
+        % \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-1}
+        % \includegraphics<3>[height=.6\paperheight]{figure/Calling-statements-of-Classes-2}
+        % \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-3}
+        % \includegraphics<5>[height=.6\paperheight]{figure/Calling-statements-of-Classes-4}
+        % \includegraphics<6>[height=.6\paperheight]{figure/Calling-statements-of-Classes-5}
+        \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes-6}
         \caption{Calling Statement between Method $m_{11}$, $m_{21}$ and $m_{31}$ of Class $C_1$, $C_2$ and $C_3$ respectively }
         \label{fig:testPathSelection}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Analizing method signature}
+\begin{frame}{Analyzing method signature}
     \centering
     \makebox[0.7\paperwidth][l]{$m_{11}~:~12~~studentScore~>80$}
     \makebox[0.7\paperwidth][l]{$m_{11}~:~14~~studentScore~>50$}
     \makebox[0.7\paperwidth][l]{$m_{21}~:~11~~true~>~hasQuizScore$}
 \end{frame}
 
-\begin{frame}{Analizing method signature}
+\begin{frame}{Analyzing method signature}
+    \centering
+    \makebox[0.7\paperwidth][l]{$StudentScore~<=~50$}
+\end{frame}
+
+\begin{frame}{Analyzing method signature}
     \centering
     \makebox[0.7\paperwidth][l]{$m_{11}(String~studntID,~float~studentScore)~:~String$}
     \makebox[0.7\paperwidth][l]{$m_{11}(String~studentID)~:~float$}
@@ -382,9 +396,10 @@
 \section{Conclusion}
 \begin{frame}{Conclusion}
     \begin{itemize}
-        \item Introduce an approach for test case generation based on integration testing by considering the static call graph.
-        \item Generated test cases exercise all branches in the graph, branch coverage.
-        \item Test data also prepaire to make the test case exercise throught the selected test paths.
+        \item Test case generateion for \textbf{Integration Testing} by considering static call graph.
+        \item All branches of \textbf{Static Call Graph} are covered.
+        \item Test data also prepare.
+        \item \textbf{Future work}, tool that adopt this approach has been developing.
     \end{itemize}
 \end{frame}
 % % % % % % % % % % % % % % % % % % % % 
