@@ -24,9 +24,11 @@
 %
 \title{An Approach for Test Case Generation from a Static Call Graph for Object-Oriented Programming}
 % \subtitle{IMECS2017}
-\date{17 March 2017}
+\date{17$^{th}$ March 2017}
 \author{\authorNameEN~\small{and~\advisorEn}}
-\institute{{\facultyEn}, {\universityEn}}
+\institute{Department of Computer Engineering \\ %
+{\facultyEn}, {\universityEn}
+}
 % % % % % % % % % % % % % % % % % % % % 
 
 \begin{document}
@@ -65,7 +67,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Various of languages}
+\begin{frame}{Various languages}
     \begin{figure}
         \includegraphics[width=.9\paperwidth]{figure/hello-world-lang}
         \caption{$Hello~World!$ in difference languages}
@@ -74,13 +76,13 @@
     \note{Hello world}
 \end{frame}
 
-\begin{frame}{Software contains modules}
-    \begin{figure}
-        \includegraphics[width=.7\paperwidth]{figure/software-modules}
-        \caption{Software modules}
-        \label{fig:softwareModules}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Software contains modules}
+%     \begin{figure}
+%         \includegraphics[width=.7\paperwidth]{figure/software-modules}
+%         \caption{Software modules}
+%         \label{fig:softwareModules}
+%     \end{figure}
+% \end{frame}
 
 \begin{frame}{Software works together}
     \begin{figure}
@@ -292,8 +294,8 @@
     \end{figure}
 \end{frame}
 
-\subsection{Generating Test case}
-\begin{frame}
+\subsection{Generating test case}
+\begin{frame}{Generating test case}
     \begin{figure}
         \includegraphics[height=0.8\paperheight]{figure/Methodology-Highlight-1}
     \end{figure}
@@ -328,13 +330,13 @@
 
 \begin{frame}{Test paths selection}
     \begin{figure}
-        % \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes}
+        \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes}
         % \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-1}
         % \includegraphics<3>[height=.6\paperheight]{figure/Calling-statements-of-Classes-2}
         % \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-3}
         % \includegraphics<5>[height=.6\paperheight]{figure/Calling-statements-of-Classes-4}
-        % \includegraphics<6>[height=.6\paperheight]{figure/Calling-statements-of-Classes-5}
-        \includegraphics<1>[height=.6\paperheight]{figure/Calling-statements-of-Classes-6}
+        \includegraphics<2>[height=.6\paperheight]{figure/Calling-statements-of-Classes-5}
+        \includegraphics<3>[height=.6\paperheight]{figure/Calling-statements-of-Classes-6}
         \caption{Calling Statement between Method $m_{11}$, $m_{21}$ and $m_{31}$ of Class $C_1$, $C_2$ and $C_3$ respectively }
         \label{fig:testPathSelection}
     \end{figure}
@@ -342,9 +344,10 @@
 
 \begin{frame}{Analyzing method signature}
     \centering
-    \makebox[0.7\paperwidth][l]{$m_{11}~:~12~~studentScore~>80$}
-    \makebox[0.7\paperwidth][l]{$m_{11}~:~14~~studentScore~>50$}
-    \makebox[0.7\paperwidth][l]{$m_{21}~:~11~~true~>~hasQuizScore$}
+    \makebox[0.7\paperwidth][l]{$m_{11}~:~12~~studentScore~>80$~~$[False]$}
+    \makebox[0.7\paperwidth][l]{$m_{11}~:~14~~studentScore~>50$~~$[False]$}
+    \makebox[0.7\paperwidth][l]{$m_{21}~:~11~~true~==~hasQuizScore$~~$[False]$}
+    \makebox[0.7\paperwidth][l]{$m_{31}~:~12~~3~<~quizeAmout$~~$[Don't~care]$}
 \end{frame}
 
 \begin{frame}{Analyzing method signature}
@@ -354,15 +357,23 @@
 
 \begin{frame}{Analyzing method signature}
     \centering
-    \makebox[0.7\paperwidth][l]{$m_{11}(String~studntID,~float~studentScore)~:~String$}
+    \makebox[0.7\paperwidth][l]{$m_{11}(String~studentID,~float~studentScore)~:~String$}
     \makebox[0.7\paperwidth][l]{$m_{11}(String~studentID)~:~float$}
     \makebox[0.7\paperwidth][l]{$m_{21}(String~studentID)~:~float$}
 \end{frame}
 
 \begin{frame}
-    \begin{figure}
-        \includegraphics[width=0.8\paperwidth]{figure/constants-collection.pdf}
-    \end{figure}
+    % \begin{figure}
+    %     \includegraphics[width=0.8\paperwidth]{figure/constants-collection.pdf}
+    % \end{figure}
+    \begin{table}
+        \begin{tabular}{cccc}
+            \textit{\textbf{String}} & \textit{\textbf{int}} & \textit{\textbf{float}} & \textit{\textbf{enum}} \\ \hline \hline
+            "U"     & 80    & - & - \\
+            "I"     & 0     &   &   \\
+            "S"     & 100   &   &   \\ \hline 
+        \end{tabular}
+    \end{table}
 \end{frame}
 
 \begin{frame}{Generating test case}
